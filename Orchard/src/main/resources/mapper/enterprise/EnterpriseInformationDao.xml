@@ -2,7 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.orchard.dao.EnterpriseInformationDao">
-	<select id="selectEnterprise" resultType="cn.orchard.pojo.EnterpriseInformation">
+	<select id="selectEnterpriseInformation"
+		resultType="cn.orchard.pojo.EnterpriseInformation">
 		select * from enterprise_information
 	</select>
+	<select id="selectEnterpriseInformationByNumber"
+		resultType="cn.orchard.pojo.EnterpriseInformation">
+		select * from enterprise_information where number=#{number}
+	</select>
+	<update id="updateEnterpriseInformation">
+		UPDATE `orchard`.`enterprise_information` SET
+		`enterprise_name` =#{enterpriseName}, `product` = #{product}, `moble_phone` =#{moblePhone}, `model`
+		=#{model}, `registered_capital` = #{registeredCaptial}, `registered_address` = #{registeredAddress},
+		`number_of_employees` = #{numberOfEmployess}, `set_up_the_time` = #{setUpTheTime}, `phone`
+		= #{phone}, `business` = #{business}, `home` =#{home}, `zip_code` = #{zipCode}, `email` =
+		#{email}, `address` = #{address}, `contact` = #{contact}, `wechat` = #{wechat}, `introduction`
+		= #{introduction}, `enterprise_type` = #{enterpriseType}, `business_location` = #{businessLocation},
+		`created_time` = #{createdTime}, `update_time` =#{updateTime},
+		`banner_image` = #{bannerImage}, `logo_image` = #{logoImage}, `qr_code_image` = #{qrCodeImage} WHERE
+		(`number` = #{number});
+	</update>
 </mapper>

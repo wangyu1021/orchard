@@ -1,13 +1,17 @@
 package cn.orchard.pojo;
 
 import java.util.Date;
+
+import io.swagger.annotations.ApiModelProperty;
 /**
  * 企业信息
  * @author Riyas
  *
  */
 public class EnterpriseInformation {
+	@ApiModelProperty(hidden = true)
 	private int id;//id
+	@ApiModelProperty(hidden = true)
 	private String number;//编号
 	private String enterpriseName;//公司名称
 	private String product;//主营产品
@@ -29,7 +33,9 @@ public class EnterpriseInformation {
 	private String introduction;//公司简介
 	private String enterpriseType;//公司类型
 	private String businessLocation;//经营地址
-	private Date createdTime;//创建时间 
+	@ApiModelProperty(hidden = true)
+	private Date createdTime;//创建时间
+	@ApiModelProperty(hidden = true)
 	private Date updateTime;//修改时间 
 	private String bannerImage;//横幅图片
 	private String logoImage;//logo图片

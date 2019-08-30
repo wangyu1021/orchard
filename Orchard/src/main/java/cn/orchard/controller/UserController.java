@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.orchard.pojo.JsonResult;
 import cn.orchard.service.UserService;
+import io.swagger.annotations.Api;
 /**
  * 目前无用
  * @author Riyas
@@ -15,6 +16,7 @@ import cn.orchard.service.UserService;
  */
 @Controller
 @RequestMapping("user")
+@Api(value = "/user", tags = "User接口")
 public class UserController {
 	@Autowired
 	private UserService userService;

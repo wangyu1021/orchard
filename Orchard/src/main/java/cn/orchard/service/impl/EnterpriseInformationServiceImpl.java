@@ -1,5 +1,6 @@
 package cn.orchard.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,15 @@ import cn.orchard.service.EnterpriseInformationService;
 public class EnterpriseInformationServiceImpl implements EnterpriseInformationService {
 	@Autowired
 	private EnterpriseInformationDao enterpriseInformationDao;
-	public List<EnterpriseInformation> findEnterprise() {
-		return enterpriseInformationDao.selectEnterprise();
+	public List<EnterpriseInformation> findEnterpriseInformation() {
+		return enterpriseInformationDao.selectEnterpriseInformation();
 	}
-	public void updateEnterprise(EnterpriseInformation enterprise) {
-		enterpriseInformationDao.updateEnterprise(enterprise);
+	public void updateEnterpriseInformation(EnterpriseInformation enterprise) {
+		EnterpriseInformation enterpriseInformation = enterpriseInformationDao.selectEnterpriseInformationByNumber(enterprise.getNumber());
+		if(enterpriseInformation==null) {
+			throw new RuntimeException("无法修改");
+		}
+		enterprise.setUpdateTime(new Date());
+		enterpriseInformationDao.updateEnterpriseInformation(enterprise);
 	}
-
 }

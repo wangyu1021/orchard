@@ -1,20 +1,35 @@
 package cn.orchard.pojo;
 
 import java.util.Date;
+
+import io.swagger.annotations.ApiModelProperty;
 /**
  * 企业动态
  * @author Riyas
  *
  */
 public class EnterpriseDynamic {
+	@ApiModelProperty(hidden = true)
 	private int id;//id
+	@ApiModelProperty(hidden = true)
 	private String enterpriseNumber;//企业编号
 	private String title;//标题
 	private String author;//作者
 	private String note;//备注
+	private String content;//内容
+	@ApiModelProperty(hidden = true)
 	private String state;//状态
+	@ApiModelProperty(hidden = true)
 	private Date createdTime;//创建时间 
+	@ApiModelProperty(hidden = true)
 	private Date updateTime;//修改时间 
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public int getId() {
 		return id;
 	}
@@ -66,8 +81,8 @@ public class EnterpriseDynamic {
 	@Override
 	public String toString() {
 		return "EnterpriseDynamic [id=" + id + ", enterpriseNumber=" + enterpriseNumber + ", title=" + title
-				+ ", author=" + author + ", note=" + note + ", state=" + state + ", createdTime=" + createdTime
-				+ ", updateTime=" + updateTime + "]";
+				+ ", author=" + author + ", note=" + note + ", content=" + content + ", state=" + state
+				+ ", createdTime=" + createdTime + ", updateTime=" + updateTime + "]";
 	}
 	
 }

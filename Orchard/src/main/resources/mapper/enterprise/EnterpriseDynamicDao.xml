@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.orchard.dao.EnterpriseDynamicDao">
+	<select id="selectEnterpriseDynamic"
+		resultType="cn.orchard.pojo.EnterpriseDynamic">
+		select * from enterprise_dynamic
+	</select>
+	<insert id="insertEnterpriseDynamic">
+		INSERT INTO `orchard`.`enterprise_dynamic` (`id`,
+		`enterprise_number`, `title`, `content`, `author`, `note`, `state`,
+		`created_time`, `update_time`) VALUES ('null', #{enterpriseNumber},
+		#{title},#{content}, #{author}, #{note}, #{state}, #{createdTime}, #{updateTime});
+	</insert>
+</mapper>

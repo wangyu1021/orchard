@@ -8,10 +8,10 @@ public interface EnterpriseInformationService {
 	/**
 	 * 获取公司信息
 	 */
-	List<EnterpriseInformation> findEnterprise();
+	List<EnterpriseInformation> findEnterpriseInformation();
 	/**
 	 * 修改公司信息
 	 * @param enterprise
 	 */
-	void updateEnterprise(EnterpriseInformation enterprise);
+	void updateEnterpriseInformation(EnterpriseInformation enterprise);
 }
