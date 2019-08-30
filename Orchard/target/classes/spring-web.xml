@@ -29,15 +29,4 @@
 		<property name="Prefix" value="/WEB-INF/pages/" />
 		<property name="Suffix" value=".html" />
 	</bean>
-	<!-- 配置spring mvc拦截器 
-	<mvc:interceptors>
-		<mvc:interceptor>
-			不拦截的请求
-			<mvc:exclude-mapping path="" />
-			定义要拦截的请求 
-			<mvc:mapping path="/user/doLogin.do" />
-			<ref bean="timeAccessInterceptor" />
-		</mvc:interceptor>
-		多个拦截器时,看优先等级执行
-	</mvc:interceptors> -->
 </beans>

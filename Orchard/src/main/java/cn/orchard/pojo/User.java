@@ -1,30 +1,24 @@
 package cn.orchard.pojo;
 
 public class User {
-	private String user_name;
-	private int age;
-	private String sex;
-	public String getUser_name() {
-		return user_name;
+	private String userName;
+	private String password;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public int getAge() {
-		return age;
+	public String getPassword() {
+		return password;
 	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
-		return "User [user_name=" + user_name + ", age=" + age + ", sex=" + sex + "]";
+		return "User [userName=" + userName + ", password=" + password + "]";
 	}
+	
 	
 }

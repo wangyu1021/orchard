@@ -5,4 +5,7 @@
 	<select id="selectUser" resultType="cn.orchard.pojo.User">
 		select * from user
 	</select>
+	<select id="selectUserByUserName" resultType="cn.orchard.pojo.User">
+		select * from user where user_name=#{username}
+	</select>
 </mapper>
