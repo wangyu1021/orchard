@@ -1,14 +1,11 @@
 package cn.orchard.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -17,8 +14,8 @@ import cn.orchard.pojo.EnterpriseInformation;
 import cn.orchard.pojo.JsonResult;
 import cn.orchard.service.EnterpriseDynamicService;
 import cn.orchard.service.EnterpriseInformationService;
+import cn.orchard.vo.Page;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin
@@ -28,22 +25,9 @@ import io.swagger.annotations.ApiOperation;
 public class EnterpriseController {
 	@Autowired
 	private EnterpriseInformationService enterpriseInformationService;
-	
+
 	@Autowired
 	private EnterpriseDynamicService enterpriseDynamicService;
-	/**
-	 * 获取公司信息
-	 * @return
-	 */
-	@RequestMapping("findEnterpriseInformation.do")
-	@ResponseBody
-	@ApiOperation(value = "获取企业信息", notes = "获取企业信息", httpMethod = "GET", response = Map.class)
-	public Map<String, Object> findEnterpriseInformation() {
-		List<EnterpriseInformation> list = enterpriseInformationService.findEnterpriseInformation();
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("informationList", list);
-		return map;
-	}
 	/**
 	 * 修改公司信息
 	 * @param enterpriseInformation
@@ -65,29 +49,48 @@ public class EnterpriseController {
 		return json;
 	}
 	/**
-	 * 获取公司动态
-	 */
-	@RequestMapping("findEnterpriseDynamic.do")
-	@ResponseBody
-	@ApiOperation(value = "获取公司动态", notes = "获取公司动态", httpMethod = "GET", response = Map.class)
-	public Map<String, Object> findEnterpriseDynamic(){
-		List<EnterpriseDynamic> list = enterpriseDynamicService.finEnterpriseDynamic();
-		Map<String,Object> map=new HashMap<String ,Object>();
-		map.put("dynamicList", list);
-		return map;
-	}
-	/**
 	 * 增加公司动态
 	 */
 	@RequestMapping("addEnterpriseDynamic.do")
 	@ResponseBody
-	@ApiOperation(value = "增加公司动态", notes = "增加公司动态", httpMethod = "GET", response = JsonResult.class)
-	public JsonResult addEnterpriseDynamic(@ModelAttribute("enterpriseDynamic")EnterpriseDynamic enterpriseDynamic) {
+	@ApiOperation(value = "增加公司动态", notes = "增加公司动态", httpMethod = "POST", response = JsonResult.class)
+	public JsonResult addEnterpriseDynamic(@RequestBody(required = false) EnterpriseDynamic enterpriseDynamic) {
 		JsonResult json=new JsonResult();
 		try {
+			System.out.println(enterpriseDynamic);
 			enterpriseDynamicService.addEnterpriseDynamic(enterpriseDynamic);
 			json.setState(1);
 			json.setMessage("添加动态成功");
+		} catch (Exception e) {
+			json.setState(0);
+			json.setMessage(e.getMessage());
+		}
+		return json;
+	}
+	@RequestMapping("doFindEnterpriseDynamicPage.do")
+	@ResponseBody
+	@ApiOperation(value = "公司动态分页查询", notes = "公司动态分页查询", httpMethod = "GET", response = JsonResult.class)
+	public JsonResult doFindEnterpriseDynamicPage(Integer pageCurrent) {
+		JsonResult json = new JsonResult();
+		try {
+			Page<EnterpriseDynamic> page = enterpriseDynamicService.findPageObjects(pageCurrent);
+			json.setState(1);
+			json.setData(page);
+		} catch (Exception e) {
+			json.setState(0);
+			json.setMessage(e.getMessage());
+		}
+		return json;
+	}//将对象转换为json串时，都是访问get方法
+	@RequestMapping("doFindEnterpriseInformationPage.do")
+	@ResponseBody
+	@ApiOperation(value = "公司简介分页查询", notes = "公司简介分页查询", httpMethod = "GET", response = JsonResult.class)
+	public JsonResult doFindEnterpriseInformationPage(Integer pageCurrent) {
+		JsonResult json = new JsonResult();
+		try {
+			Page<EnterpriseInformation> page = enterpriseInformationService.findPageObjects(pageCurrent);
+			json.setState(1);
+			json.setData(page);
 		} catch (Exception e) {
 			json.setState(0);
 			json.setMessage(e.getMessage());

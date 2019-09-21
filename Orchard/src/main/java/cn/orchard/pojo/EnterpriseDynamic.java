@@ -1,6 +1,8 @@
 package cn.orchard.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
+
 
 import io.swagger.annotations.ApiModelProperty;
 /**
@@ -8,11 +10,15 @@ import io.swagger.annotations.ApiModelProperty;
  * @author Riyas
  *
  */
-public class EnterpriseDynamic {
+public class EnterpriseDynamic  implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5604261479001154663L;
 	@ApiModelProperty(hidden = true)
 	private int id;//id
 	@ApiModelProperty(hidden = true)
-	private String enterpriseNumber;//企业编号
+	private String enterprise_number;//企业编号
 	private String title;//标题
 	private String author;//作者
 	private String note;//备注
@@ -20,27 +26,20 @@ public class EnterpriseDynamic {
 	@ApiModelProperty(hidden = true)
 	private String state;//状态
 	@ApiModelProperty(hidden = true)
-	private Date createdTime;//创建时间 
+	private Date created_time;//创建时间 
 	@ApiModelProperty(hidden = true)
-	private Date updateTime;//修改时间 
-	
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
+	private Date update_time;//修改时间 
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getEnterpriseNumber() {
-		return enterpriseNumber;
+	public String getEnterprise_number() {
+		return enterprise_number;
 	}
-	public void setEnterpriseNumber(String enterpriseNumber) {
-		this.enterpriseNumber = enterpriseNumber;
+	public void setEnterprise_number(String enterprise_number) {
+		this.enterprise_number = enterprise_number;
 	}
 	public String getTitle() {
 		return title;
@@ -60,29 +59,38 @@ public class EnterpriseDynamic {
 	public void setNote(String note) {
 		this.note = note;
 	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public String getState() {
 		return state;
 	}
 	public void setState(String state) {
 		this.state = state;
 	}
-	public Date getCreatedTime() {
-		return createdTime;
+	public Date getCreated_time() {
+		return created_time;
 	}
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
+	public void setCreated_time(Date created_time) {
+		this.created_time = created_time;
 	}
-	public Date getUpdateTime() {
-		return updateTime;
+	public Date getUpdate_time() {
+		return update_time;
 	}
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
+	public void setUpdate_time(Date update_time) {
+		this.update_time = update_time;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	@Override
 	public String toString() {
-		return "EnterpriseDynamic [id=" + id + ", enterpriseNumber=" + enterpriseNumber + ", title=" + title
+		return "EnterpriseDynamic [id=" + id + ", enterprise_number=" + enterprise_number + ", title=" + title
 				+ ", author=" + author + ", note=" + note + ", content=" + content + ", state=" + state
-				+ ", createdTime=" + createdTime + ", updateTime=" + updateTime + "]";
+				+ ", created_time=" + created_time + ", update_time=" + update_time + "]";
 	}
 	
 }

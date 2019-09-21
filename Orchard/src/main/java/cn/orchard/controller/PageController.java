@@ -2,11 +2,13 @@ package cn.orchard.controller;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+@CrossOrigin
 @Controller
 @Api(tags = "Page接口")
 public class PageController {

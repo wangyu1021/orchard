@@ -1,11 +1,12 @@
 package cn.orchard.service;
 
-import java.util.List;
 
 import cn.orchard.pojo.EnterpriseDynamic;
+import cn.orchard.vo.Page;
 
 public interface EnterpriseDynamicService {
-	List<EnterpriseDynamic> finEnterpriseDynamic();
 
 	void addEnterpriseDynamic(EnterpriseDynamic enterpriseDynamic);
+	Page<EnterpriseDynamic> findPageObjects(
+			 Integer pageCurrent);
 }

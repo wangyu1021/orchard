@@ -1,13 +1,33 @@
 package cn.orchard.pojo;
 
-public class User {
-	private String userName;
+import java.io.Serializable;
+
+import io.swagger.annotations.ApiModelProperty;
+/**
+ * 用户
+ * @author Riyas
+ *
+ */
+public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3831326144946107191L;
+	@ApiModelProperty(hidden = true)
+	private int id;
+	private String username;
 	private String password;
-	public String getUserName() {
-		return userName;
+	public int getId() {
+		return id;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -17,8 +37,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", password=" + password + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
 	}
-	
 	
 }

@@ -8,15 +8,25 @@ import cn.orchard.pojo.EnterpriseInformation;
 
 public interface EnterpriseInformationDao {
 	/**
-	 * 获取公司信息
-	 * @return
-	 */
-	List<EnterpriseInformation> selectEnterpriseInformation();
-	/**
 	 * 修改公司信息
 	 * @param enterprise
 	 */
-	void updateEnterpriseInformation(@Param("enterprise")EnterpriseInformation enterprise);
+	void updateEnterpriseInformation(EnterpriseInformation enterprise);
+
+	EnterpriseInformation selectEnterpriseInformationByNumber(String number);
+	/**
+	 * 通过名字查询数量
+	 * @param name
+	 * @return
+	 */
+	int getRowCount();
 	
-	EnterpriseInformation selectEnterpriseInformationByNumber(@Param("number")String number);
+	/**
+	 * 分页查询
+	 * @param name
+	 * @param startIndex
+	 * @param pageSize
+	 * @return
+	 */
+	List<EnterpriseInformation> findPageObjects(@Param("startIndex") int startIndex,@Param("pageSize") int pageSize);
 }

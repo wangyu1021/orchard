@@ -31,4 +31,5 @@
 	</bean>
 	<!--设置注解驱动的事务管理 (此元素会注册一个bean对象.会扫描所有事务切入点)-->
 	<tx:annotation-driven transaction-manager="txManager" />
+		
 </beans>
