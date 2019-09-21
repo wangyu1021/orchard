@@ -1,0 +1,55 @@
+.info_head {
+    height: 34px;
+    background: url(../img/left_header_bg.jpg) repeat-x left bottom;
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+    line-height: 34px;
+    padding: 0 15px;
+}
+
+.info_content {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.main_content {
+    padding: 20px 0;
+    width: 1000px;
+    margin: auto;
+}
+
+.marT20 {
+    margin-top: 20px;
+}
+
+.label_head {
+    background: url(../img/ny_bg1.jpg) repeat-x left bottom;
+    height: 28px;
+    color: #049435;
+    line-height: 28px;
+    border: 1px solid #ccc;
+    text-align: left;
+    border-bottom: none;
+}
+
+.link_more {
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.label_title {
+    font-size: 14px;
+    line-height: 27px;
+    float: left;
+    color: #049435;
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+.grey {
+    color: #666
+}
